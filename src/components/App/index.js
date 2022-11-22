@@ -21,7 +21,6 @@ function App() {
           </div>                 
         </form>
       </section>
-
       <section className="quiz-body">
         <div className="quiz-generator">
           <form>
@@ -40,6 +39,16 @@ function App() {
           </form>
         </div>
       </section>
+      <section className='question-display'>
+        <div className='question-card'>
+          <h4>Question</h4>
+          <p>placeholder</p>
+          <h4>Answer</h4>
+          <p>placeholder</p>
+          <button>Reveal</button>
+        </div>
+      </section>
+
     </div>
     
 
