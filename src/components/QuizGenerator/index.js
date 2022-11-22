@@ -4,19 +4,19 @@ export default function QuizGenerator () {
     return (
         <div className="quiz-generator">
           <form>
-            <label> topic1
+            <label> React
             <input type="checkbox"></input>
             </label>
-            <label> topic2
+            <label> HTML/CSS
             <input type="checkbox"></input>
             </label>
-            <label> topic3
+            <label> SQL
             <input type="checkbox"></input>
             </label>
-            <label> topic4
+            <label> JS
             <input type="checkbox"></input>
             </label>
-            <Button/>
+            <Button text="Generate Quiz"/>
           </form>
         </div>
     )
