@@ -3,9 +3,26 @@ import './index.css'
 import Header from '../Header'
 import Form from '../Form'
 import QuizBody from '../QuizBody'
+import { useEffect } from 'react'
 
 function App() {
   
+useEffect(()=>{
+  async function getTopics (){
+    const response = await fetch("/api/quiz")
+    const data = await response.json()
+    console.log(data.payload)
+  }
+getTopics()
+},[])
+
+
+
+
+
+
+
+
   return (
     <div className="app">
       <Header />

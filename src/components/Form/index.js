@@ -7,27 +7,24 @@ export default function Form() {
         <div>
             <form className="form">
                 <div className="input-field-container">
-                    <label>Query0
+                    <label>Question:
                         <input></input>
                     </label>
                     
-                    <label>Query1
+                    <label>Answer:
                         <input></input>
                     </label>
 
-                    <label>Query2
+                    <label>Topic:
                         <input></input>
                     </label>   
-                    <label>Query3
-                        <input></input>
-                    </label> 
                 </div>
                 
 
                 <div className="button-container">
-                    <Button className="form-button"/>
-                    <Button/>
-                    <Button/>
+                    <Button className="form-button" text="Edit"/>
+                    <Button className="form-button" text="Update" />
+                    
                 </div>                 
             </form>
          </div>
