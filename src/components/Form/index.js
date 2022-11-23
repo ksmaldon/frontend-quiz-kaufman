@@ -11,16 +11,42 @@ import { useState } from 'react'
 
 
 export default function Form() {
-    const [formData, setFormData]= useState({Questions:"",Answer:"",Topic:""})
+    const [formData, setFormData]= useState({})
+
+
+
+
 
     function handleChangeForm(event) {
         const Question = event.target.form.Questions.value
         const Answers = event.target.form.Answer.value
         const Topics = event.target.form.Topic.value
 
-        setFormData({Questions:Question,Answer:Answers,Topic:Topics})
+        setFormData({Question,Answers,Topics})
         console.log(formData)
 
+    }
+
+
+
+    async function addNewQuestion() {
+        
+        const response = await fetch(`$/api/questions`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const data = await response.json();
+        console.log(data);
+        console.log("async function")
+      }
+
+
+
+    function submitNewQuestion (event){
+        event.preventDefault()
+        console.log(formData)
+        addNewQuestion()
     }
 
 
@@ -44,6 +70,7 @@ export default function Form() {
                 
 
                 <div className="button-container">
+                    <button onClick={submitNewQuestion}>Add Question</button>
                     <Button className="form-button" text="Edit"/>
                     <Button className="form-button" text="Update" />
                     
