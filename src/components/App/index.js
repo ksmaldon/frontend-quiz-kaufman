@@ -9,7 +9,7 @@ function App() {
   
 useEffect(()=>{
   async function getTopics (){
-    const response = await fetch("/api/quiz")
+    const response = await fetch("/api/questions")
     const data = await response.json()
     console.log(data.payload)
   }
