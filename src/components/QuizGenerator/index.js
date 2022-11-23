@@ -1,23 +1,61 @@
 import Button from "../Button"
-export default function QuizGenerator ({allOnClick}) {
+import {  useState } from 'react'
+export default function QuizGenerator ({fiveQuestions}) {
+  const [topics, setTopics] = useState([])
+  
 
+  
+    function handleCheckboxChange(e) {
+
+      const  { value, checked } = e.target;
+      console.log(`${value} is ${checked}`)
+
+if(checked){
+  setTopics([...topics, value]) }
+
+else {
+  setTopics(topics.filter((e) => e !== value))
+}}
+
+ 
+
+ 
     return (
         <div className="quiz-generator">
           <form>
             <label> React
-            <input type="checkbox"></input>
+            <input  id="react" 
+            name="topics" 
+            value="react" 
+            onChange={handleCheckboxChange} 
+            type="checkbox"></input>
             </label>
             <label> HTML/CSS
-            <input type="checkbox"></input>
+            <input type="checkbox"
+            id="HTML_CSS" 
+            name="topics" 
+            value="HTML_CSS" 
+            onChange={handleCheckboxChange} 
+           ></input>
             </label>
             <label> SQL
-            <input type="checkbox"></input>
+            <input id="SQL" 
+            name="topics" 
+            value="SQL" 
+            onChange={handleCheckboxChange} 
+            type="checkbox"></input>
             </label>
             <label> JS
-            <input type="checkbox"></input>
+            <input id="JS" 
+            name="topics" 
+            value="JS" 
+            onChange={handleCheckboxChange} 
+            type="checkbox"></input>
             </label>
-            <Button allOnClick={allOnClick} text="Generate Quiz"/>
+            <button onClick={fiveQuestions}>Generate Quiz</button>
           </form>
+          <div></div>
         </div>
+        
     )
-}
+    }

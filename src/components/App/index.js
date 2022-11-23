@@ -7,10 +7,12 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [allQuestionsClick,setAllQuestionsClick] =useState([])
-
+  const [fiveQuestions, setFiveQuestions] = useState([])
   const [allQuestions,setAllQuestions] =useState([])
 
-async function getAllQuestions(){
+
+
+async function getAllQuestionsClick(){
   const response = await fetch("/api/questions")
     const data = await response.json()
     console.log(data[0])
@@ -20,6 +22,16 @@ async function getAllQuestions(){
 }
 
 
+ function getFiveQuestions(){
+  let questionArray = []
+  for (let i=0; i < 5; i++){
+    let randomNumber = Math.floor(Math.random()*allQuestions.length)
+    questionArray.push(allQuestions[randomNumber])
+  }
+  setFiveQuestions(questionArray)
+console.log(questionArray)
+}
+
 
 useEffect(()=>{
   async function getTopics (){
@@ -28,8 +40,10 @@ useEffect(()=>{
     console.log(data.payload)
     setAllQuestions(data.payload)
     console.log(allQuestions)
+    
   }
 getTopics()
+
 },[])
 
 
@@ -37,7 +51,7 @@ getTopics()
     <div className="app">
       <Header />
       <Form />
-      <QuizBody allQuestions={allQuestions} allOnClick={getAllQuestions}/>
+      <QuizBody fiveQuestionsState = {fiveQuestions} fiveQuestions={getFiveQuestions} />
            
     </div>
 

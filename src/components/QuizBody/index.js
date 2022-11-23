@@ -1,11 +1,11 @@
 import QuizGenerator from "../QuizGenerator"
 import QuestionDisplay from "../QuestionDisplay"
 
-export default function QuizBody({allOnClick, allQuestions}) {
+export default function QuizBody({fiveQuestions, fiveQuestionsState}) {
     return(
         <div>
-            <QuizGenerator allOnClick={allOnClick}/>
-            <QuestionDisplay allQuestions={allQuestions}/>
+            <QuizGenerator fiveQuestions = {fiveQuestions} />
+            <QuestionDisplay fiveQuestions = {fiveQuestionsState}/>
         </div>
     )
 }
