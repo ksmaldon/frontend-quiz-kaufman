@@ -21,17 +21,20 @@ export default function Form() {
         const Question = event.target.form.Questions.value
         const Answers = event.target.form.Answer.value
         const Topics = event.target.form.Topic.value
-
-        setFormData({Question,Answers,Topics})
+        let topicId = null
+        if  (Topics === "react" ){
+            topicId = 1
+        }
+        setFormData({question:Question,answer:Answers,topic_id:topicId})
         console.log(formData)
-
+        
     }
 
 
 
     async function addNewQuestion() {
         
-        const response = await fetch(`$/api/questions`, {
+        const response = await fetch(`/api/questions`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
