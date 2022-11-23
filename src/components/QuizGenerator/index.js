@@ -1,61 +1,73 @@
-import Button from "../Button"
-import {  useState } from 'react'
-export default function QuizGenerator ({fiveQuestions}) {
-  const [topics, setTopics] = useState([])
-  
+import Button from "../Button";
+import { useEffect, useState } from "react";
 
-  
-    function handleCheckboxChange(e) {
+export default function QuizGenerator({ setTopics }) {
+  const [reactChecked, setReactChecked] = useState(false);
+  const [htmlChecked, setHtmlChecked] = useState(false);
+  const [jsChecked, setJsChecked] = useState(false);
+  const [sqlChecked, setSqlChecked] = useState(false);
 
-      const  { value, checked } = e.target;
-      console.log(`${value} is ${checked}`)
+  useEffect(() => {
+    const stateArray = [reactChecked, htmlChecked, jsChecked, sqlChecked];
+    let indexArray = [];
 
-if(checked){
-  setTopics([...topics, value]) }
+    stateArray.forEach((state, index) => {
+      if (state) {
+        indexArray.push(index + 1);
+      }
+    });
 
-else {
-  setTopics(topics.filter((e) => e !== value))
-}}
+    setTopics(indexArray);
+  }, [reactChecked, htmlChecked, jsChecked, sqlChecked, setTopics]);
 
- 
-
- 
-    return (
-        <div className="quiz-generator">
-          <form>
-            <label> React
-            <input  id="react" 
-            name="topics" 
-            value="react" 
-            onChange={handleCheckboxChange} 
-            type="checkbox"></input>
-            </label>
-            <label> HTML/CSS
-            <input type="checkbox"
-            id="HTML_CSS" 
-            name="topics" 
-            value="HTML_CSS" 
-            onChange={handleCheckboxChange} 
-           ></input>
-            </label>
-            <label> SQL
-            <input id="SQL" 
-            name="topics" 
-            value="SQL" 
-            onChange={handleCheckboxChange} 
-            type="checkbox"></input>
-            </label>
-            <label> JS
-            <input id="JS" 
-            name="topics" 
-            value="JS" 
-            onChange={handleCheckboxChange} 
-            type="checkbox"></input>
-            </label>
-            <button onClick={fiveQuestions}>Generate Quiz</button>
-          </form>
-          <div></div>
-        </div>
-        
-    )
-    }
+  return (
+    <div className="quiz-generator">
+      <form>
+        <label>
+          React
+          <input
+            id="react"
+            name="react"
+            checked={reactChecked}
+            onChange={() => setReactChecked(!reactChecked)}
+            type="checkbox"
+          />
+        </label>
+        <label>
+          {" "}
+          HTML/CSS
+          <input
+            id="HTML_CSS"
+            type="checkbox"
+            name="topics"
+            checked={htmlChecked}
+            onChange={() => setHtmlChecked(!htmlChecked)}
+          ></input>
+        </label>
+        <label>
+          {" "}
+          SQL
+          <input
+            id="SQL"
+            name="topics"
+            checked={sqlChecked}
+            onChange={() => setSqlChecked(!sqlChecked)}
+            type="checkbox"
+          ></input>
+        </label>
+        <label>
+          {" "}
+          JS
+          <input
+            id="JS"
+            name="topics"
+            checked={jsChecked}
+            onChange={() => setJsChecked(!jsChecked)}
+            type="checkbox"
+          ></input>
+        </label>
+        {/* <button onClick={fiveQuestions}>Generate Quiz</button> */}
+      </form>
+    </div>
+  );
+}
