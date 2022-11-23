@@ -1,5 +1,5 @@
 import Button from "../Button"
-export default function QuizGenerator () {
+export default function QuizGenerator ({allOnClick}) {
 
     return (
         <div className="quiz-generator">
@@ -16,7 +16,7 @@ export default function QuizGenerator () {
             <label> JS
             <input type="checkbox"></input>
             </label>
-            <Button text="Generate Quiz"/>
+            <Button allOnClick={allOnClick} text="Generate Quiz"/>
           </form>
         </div>
     )

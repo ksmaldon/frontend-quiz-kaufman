@@ -3,31 +3,41 @@ import './index.css'
 import Header from '../Header'
 import Form from '../Form'
 import QuizBody from '../QuizBody'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
-  
+  const [allQuestionsClick,setAllQuestionsClick] =useState([])
+
+  const [allQuestions,setAllQuestions] =useState([])
+
+async function getAllQuestions(){
+  const response = await fetch("/api/questions")
+    const data = await response.json()
+    console.log(data[0])
+    console.log("data.payload")
+    setAllQuestionsClick(data.payload)
+    console.log(allQuestionsClick)
+}
+
+
+
 useEffect(()=>{
   async function getTopics (){
     const response = await fetch("/api/questions")
     const data = await response.json()
     console.log(data.payload)
+    setAllQuestions(data.payload)
+    console.log(allQuestions)
   }
 getTopics()
 },[])
-
-
-
-
-
-
 
 
   return (
     <div className="app">
       <Header />
       <Form />
-      <QuizBody/>
+      <QuizBody allQuestions={allQuestions} allOnClick={getAllQuestions}/>
            
     </div>
 
