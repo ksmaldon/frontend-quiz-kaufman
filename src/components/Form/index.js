@@ -12,7 +12,7 @@ import { useState } from 'react'
 
 export default function Form() {
     const [formData, setFormData]= useState({})
-
+    const [topicId, setTopicId]= useState(null)
 
 
 
@@ -21,15 +21,24 @@ export default function Form() {
         const Question = event.target.form.Questions.value
         const Answers = event.target.form.Answer.value
         const Topics = event.target.form.Topic.value
-        let topicId = null
+        //let topicId = null
         if  (Topics === "react" ){
-            topicId = 1
+            setTopicId(1)
+        }
+        if  (Topics === "html/css" ){
+            setTopicId(2)
+        }
+        if  (Topics === "sql" ){
+            setTopicId(4)
+        }
+        if  (Topics === "js" ){
+            setTopicId(3)
         }
         setFormData({question:Question,answer:Answers,topic_id:topicId})
         console.log(formData)
         
     }
-
+    
 
 
     async function addNewQuestion() {
@@ -42,6 +51,7 @@ export default function Form() {
         const data = await response.json();
         console.log(data);
         console.log("async function")
+        window.location.reload();
       }
 
 
@@ -55,27 +65,30 @@ export default function Form() {
 
 
     return (
-        <div>
+        <div id="form-container">
+        <h3>Add Questions</h3>
             <form onChange={handleChangeForm} className="form">
                 <div className="input-field-container">
-                    <label>Question:
-                        <input name="Questions"></input>
-                    </label>
+                    <div className='input-field'>
+                        <label>Question:</label>
+                        <textarea name="Questions"></textarea>
+                    </div>
                     
-                    <label>Answer:
-                        <input  name="Answer" ></input>
-                    </label>
-
-                    <label>Topic:
-                        <input  name="Topic"></input>
-                    </label>   
+                    <div className='input-field'>
+                        <label>Answer:</label>
+                        <textarea  name="Answer" ></textarea>
+                    </div>
+                    <div className='input-field'>
+                        <label>Topic:</label>
+                        <textarea  name="Topic"></textarea>  
+                    </div> 
                 </div>
                 
 
                 <div className="button-container">
-                    <button onClick={submitNewQuestion}>Add Question</button>
-                    <Button className="form-button" text="Edit"/>
-                    <Button className="form-button" text="Update" />
+                    <button onClick={submitNewQuestion}>Add New Question</button>
+                    {/* <Button className="form-button" text="Edit"/>
+                    <Button className="form-button" text="Update" /> */}
                     
                 </div>                 
             </form>

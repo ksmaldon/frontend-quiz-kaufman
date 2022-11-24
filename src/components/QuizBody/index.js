@@ -1,7 +1,7 @@
 import { useState } from "react";
 import QuizGenerator from "../QuizGenerator";
 import QuestionDisplay from "../QuestionDisplay";
-
+import './index.css'
 const TOPICS = {
   react: 1,
   "html/css": 2,
@@ -9,7 +9,7 @@ const TOPICS = {
   sql: 4,
 };
 
-export default function QuizBody({ allQuestions }) {
+export default function QuizBody({ allQuestions, deleteQuestion }) {
   const [topics, setTopics] = useState([]);
 
   const filteredQuestions = allQuestions.filter((question) =>
@@ -17,9 +17,10 @@ export default function QuizBody({ allQuestions }) {
   );
 
   return (
-    <div>
+    <div id="quiz-body">
       <QuizGenerator setTopics={setTopics} />
-      <QuestionDisplay questions={filteredQuestions} />
+      
+      <QuestionDisplay deleteQuestion={deleteQuestion} questions={filteredQuestions} />
     </div>
   );
 }

@@ -9,6 +9,12 @@ function App() {
   const [fiveQuestions, setFiveQuestions] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
 
+  async function deleteQuestion(id) {
+    const response = await fetch(`/api/questions/${id}`, { method: "DELETE" });
+    const data = await response.json()
+    console.log(data)
+  }
+
   async function getAllQuestionsClick() {
     const response = await fetch("/api/questions");
     const data = await response.json();
@@ -41,7 +47,7 @@ function App() {
     <div className="app">
       <Header title={title}/>
       <Form />
-      <QuizBody allQuestions={allQuestions} />
+      <QuizBody deleteQuestion={deleteQuestion} allQuestions={allQuestions} />
     </div>
   );
 }
