@@ -11,9 +11,9 @@ import { useState } from "react";
 
 export default function Form() {
   const [formData, setFormData] = useState({});
-//   const [topicId, setTopicId] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(true)
 
-//   console.log("logging state set to var " + topicId);
+  
   console.log(formData);
 
   function handleChangeForm(event) {
@@ -21,7 +21,11 @@ export default function Form() {
     const Answers = event.target.form.Answer.value;
    
     const Topics = event.target.form.topic.value;
-    // setTopicId(Topics);
+   
+    if(Question.length >0){
+        setIsDisabled(false)
+    }
+    else{setIsDisabled(true)}
    
     setFormData({ question: Question, answer: Answers, topic_id: Topics });
     
@@ -79,7 +83,7 @@ export default function Form() {
         </div>
 
         <div className="button-container">
-          <button onClick={submitNewQuestion}>Add New Question</button>
+          <button disabled={isDisabled} onClick={submitNewQuestion}>Add New Question</button>
           {/* <Button className="form-button" text="Edit"/>
                     <Button className="form-button" text="Update" /> */}
         </div>
