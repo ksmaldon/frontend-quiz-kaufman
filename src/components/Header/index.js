@@ -1,10 +1,10 @@
-
+import './index.css'
 
 export default function Header({title}) {
 
     return (
         <div className="header">
-           <div>logo</div>
+           <img src=""/>
            <h1>{title}</h1>
      </div> 
     )

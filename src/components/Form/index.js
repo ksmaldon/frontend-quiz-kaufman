@@ -2,6 +2,7 @@ import './index.css'
 import Button from "../Button"
 import { useState } from 'react'
 
+
 //PLAN
 //Created our branch 
 //Create a handle change function to get the data from the form 
@@ -20,22 +21,25 @@ export default function Form() {
     function handleChangeForm(event) {
         const Question = event.target.form.Questions.value
         const Answers = event.target.form.Answer.value
-        const Topics = event.target.form.Topic.value
-        //let topicId = null
-        if  (Topics === "react" ){
-            setTopicId(1)
-        }
-        if  (Topics === "html/css" ){
-            setTopicId(2)
-        }
-        if  (Topics === "sql" ){
-            setTopicId(4)
-        }
-        if  (Topics === "js" ){
-            setTopicId(3)
-        }
+        console.log("target log" + event.target.form.topic.value)
+        const Topics = event.target.form.topic.value
+        setTopicId(Topics)
+        
+        // //let topicId = null
+        // if  (Topics === "react" ){
+        //     setTopicId(1)
+        // }
+        // if  (Topics === "html/css" ){
+        //     setTopicId(2)
+        // }
+        // if  (Topics === "sql" ){
+        //     setTopicId(4)
+        // }
+        // if  (Topics === "js" ){
+        //     setTopicId(3)
+        // }
         setFormData({question:Question,answer:Answers,topic_id:topicId})
-        console.log(formData)
+        console.log("form data is" + formData)
         
     }
     
@@ -79,9 +83,15 @@ export default function Form() {
                         <textarea  name="Answer" ></textarea>
                     </div>
                     <div className='input-field'>
-                        <label>Topic:</label>
-                        <textarea  name="Topic"></textarea>  
+                        
+                        Topics: <select name="topic" id="topic">
+        <option value="1" selected="selected">React</option>
+        <option value="2" selected="selected">HTML/CSS</option>
+        <option value="3" selected="selected">JavaScript</option>
+        <option value="4" selected="selected">SQL</option>
+  </select>
                     </div> 
+
                 </div>
                 
 
