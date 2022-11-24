@@ -14,6 +14,9 @@ export default function QuestionDisplay({ questions, deleteQuestion }) {
                 question={questionObject.question} 
                 answer={questionObject.answer}
                 deleteQuestion={deleteQuestion}
+                text_link={questionObject.text_link}
+                video_link={questionObject.video_link}
+                interactive_link={questionObject.interactive_link}
 
                 />
             })} 

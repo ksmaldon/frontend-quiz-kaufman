@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header title='Quiz Kaufman'
+      <Header title='Quiz-Kaufman'
       />
       <Form />
       <QuizBody deleteQuestion={deleteQuestion} allQuestions={allQuestions} />

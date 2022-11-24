@@ -1,3 +1,24 @@
+.logo {
+
+height: 180px;
+width: 270px;
+
+align-self: center;
+} 
+.logo-image {
+    max-width: 100%;
+    max-height: auto;
+}
 .header {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 30vh;
+    background: rgba(255, 255, 255, 0.52);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+
 }
