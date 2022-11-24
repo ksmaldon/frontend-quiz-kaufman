@@ -14,11 +14,13 @@ export default function QuestionCard({question, answer}) {
         <div className='question-card'>
           <h4>Question</h4> 
           <Button text="Delete"/>
-           <p>{question}</p>
+           <p className="question">{question}</p>
            <h4>Answer</h4>
+
            <p className={isActive ? 'visible' : 'hidden'}>{answer}</p>
            {/* <Button text="Reveal Answer"/> */}
            <button  onClick={handleClick}>Reveal Answer</button>
+
         </div>
     )
 }

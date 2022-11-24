@@ -1,11 +1,11 @@
 
 
-export default function Header() {
+export default function Header({title}) {
 
     return (
         <div className="header">
            <div>logo</div>
-           <h1>Quiz Kaufman</h1>
+           <h1>{title}</h1>
      </div> 
     )
 }
