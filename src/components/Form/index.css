@@ -43,12 +43,21 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     
 }
 
-.input-field textarea {
+.input-field textarea  {
     min-width:60%;
     min-height:25px;
     max-width: 60%;
     max-height: 100px;
 }
+
+.dropdown {
+    min-width:60%;
+    min-height:25px;
+    max-width: 60%;
+    max-height: 100px;
+
+}
+
 
 .button-container{
     display: flex;

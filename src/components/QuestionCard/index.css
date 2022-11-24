@@ -1,7 +1,19 @@
-.visible {
+/* .visible {
 
+} */
+
+.resource-button-container {
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;  
 }
 
+.resource-button {
+    margin-right: 10px;
+ 
+}
 #answer-text{
     background-color: rgba(255, 255, 255, 0.796);
     border-radius: 5px;

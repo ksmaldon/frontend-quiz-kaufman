@@ -21,10 +21,11 @@ export default function Form() {
     function handleChangeForm(event) {
         const Question = event.target.form.Questions.value
         const Answers = event.target.form.Answer.value
-        console.log("target log" + event.target.form.topic.value)
+        console.log("logging e.targ.val for the dropdown " + event.target.form.topic.value)
         const Topics = event.target.form.topic.value
         setTopicId(Topics)
-        
+        console.log("logging var assigned to e.tar.val " + Topics)
+        console.log("logging state set to var " + topicId )
         // //let topicId = null
         // if  (Topics === "react" ){
         //     setTopicId(1)
@@ -39,7 +40,7 @@ export default function Form() {
         //     setTopicId(3)
         // }
         setFormData({question:Question,answer:Answers,topic_id:topicId})
-        console.log("form data is" + formData)
+        console.log( formData)
         
     }
     
@@ -84,7 +85,7 @@ export default function Form() {
                     </div>
                     <div className='input-field'>
                         
-                        Topics: <select name="topic" id="topic">
+                        Topics: <select className="dropdown" name="topic" id="topic">
         <option value="1" selected="selected">React</option>
         <option value="2" selected="selected">HTML/CSS</option>
         <option value="3" selected="selected">JavaScript</option>
