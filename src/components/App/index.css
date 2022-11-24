@@ -1,9 +1,12 @@
 .app {
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
-
+  width:100%;
+  padding: 30px;
 }
 
 
