@@ -40,6 +40,7 @@ export default function QuestionCard({questionNumber,question, answer, deleteQue
            {/* <Button text="Reveal Answer"/> */}
            <button  onClick={handleClick}>{buttonText}</button>
            
+
         </div>
     )
 }
