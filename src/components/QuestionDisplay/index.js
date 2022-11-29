@@ -2,6 +2,7 @@ import QuestionCard from "../QuestionCard";
 import './index.css'
 export default function QuestionDisplay({ questions, deleteQuestion }) {
   // mapping into QuesitonCard
+  questions.sort(() => Math.random() - 0.5)
   return (
     <div id="question-display">
     
