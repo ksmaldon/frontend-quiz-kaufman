@@ -1,70 +1,161 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Quiz Kaufman
 
-## Available Scripts
 
-In the project directory, you can run:
+Lightwight, customisable flashcard quiz app for bootcampers learning with the School of Code.
+## API Reference
 
-### `npm start`
+#### Get all questions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```http
+  GET /api/questions
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+| Method | Path       | Additional Info | Result                                         | Response                                  |
+| ------ | ---------- | --------------- | ---------------------------------------------- | ----------------------------------------- |
+| GET    | /questions     |                 | all questions                                       | { success: Boolean, payload: questions  Array } |
+| GET    | /questions      | ?search=JSX  | all questions  with JSX in the question           | { success: Boolean, payload: questions  Array } |
+| GET    | /questions      | ?topic=SQL  | all questions in the topic |SQL { success: Boolean, payload: Question Array } |
+| GET    | /questions /:id |                 | questions  with a particular id if it exists        | { success: Boolean, payload: question }       |
+| POST   | /questions      | { body }        | create a new question                               | { success: Boolean, payload: question }       |
+| PATCH  | /questions /:id | { body }        | updated question                                   | { success: Boolean, payload: question }       |
+| DELETE | /questions /:id |                 | question deleted                                   | { success: Boolean, payload: question }       |
+| Method | Path         | Additional Info | Result                                    | Response                                    |
+| ------ | ------------ | --------------- | ----------------------------------------- | ------------------------------------------- |
+| GET    | /topics     |                 | all topics                               | { success: Boolean, payload: topic Array } |
+| GET    | /topics     | ?search=SQ  | all topics with “SQ” in their name   | { success: Boolean, payload: topic Array } |
+| GET    | /topics/:id |                 | topics with a particular id if it exists | { success: Boolean, payload: topic }       |
+| POST   | /topics     | { body }        | create a new topic                      | { success: Boolean, payload: topic }       |
+| PATCH  | /topics/:id | { body }        | updated topic                            | { success: Boolean, payload: topic }       |
+| DELETE | /topics/:id |                 | topic deleted                            | { success: Boolean, payload: topic }       |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Appendix
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Databases hosted by ElephantSQL and Railway.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Acknowledgements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ - [CSV file to SQL table converter](https://tableconvert.com/csv-to-sql)
+ - [CSS glass effect](https://css.glass/)
+ 
+ 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Authors
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [@ionarose](https://www.github.com/ionarose)
+- [@JeremyXZ](https://www.github.com/JeremyXZ)
+- [@ksmaldon](https://www.github.com/ksmaldon)
+- [@Mali231](https://www.github.com/Mali231)
 
-## Learn More
+## Color Reference
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
+| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
+| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
+| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Customisable quiz
+- Add and delete your own questions from the database
+- Responsive design
+- Cross platform
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Feedback
 
-### Making a Progressive Web App
+If you have any feedback, please reach out to us.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Lessons Learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Always have a backup database so that you can continue workign on the project if the database server goes down.
+- Make and regularly update an accurate componenet tree.
+- Handle database queries on the backend for scalability.
 
-### Deployment
+## Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Feature to edit questions directly inside flashcard.
 
-### `npm run build` fails to minify
+- Switch data filtering and searching to backend database queries.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Progress tracker.
+
+- Individual user accounts and personal question databases.
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+
+
+## Run Locally
+
+Clone the backend
+
+```bash
+  git clone https://github.com/SchoolOfCode/bc13_w9_project-backend-quiz-kaufman
+```
+
+Go to the project directory
+
+```bash
+  cd bc13_w9_project-backend-quiz-kaufman
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+Clone the frontend
+
+```bash
+  git clone https://github.com/SchoolOfCode/bc13_w9_project-frontend-quiz-kaufman
+```
+
+Go to the project directory
+
+```bash
+  cd bc13_w9_project-frontend-quiz-kaufman
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+
+## Tech Stack
+
+**Client:** React
+
+**Server:** Node, Express
+
+**Databases:** ElephantSQL (postgreSQL), Railway (postgreSQL)
