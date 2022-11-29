@@ -1,62 +1,57 @@
-/* .visible {
-
-} */
-
 .resource-button-container {
-    margin-bottom: 30px;
-    text-decoration: none;
+  margin-bottom: 30px;
+  text-decoration: none;
 }
-a{
-    text-decoration: none;  
+a {
+  text-decoration: none;
 }
 
 .resource-button {
-    margin-right: 10px;
- 
+  margin-right: 10px;
 }
-#answer-text{
-    background-color: rgba(255, 255, 255, 0.796);
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.hidden{
-    display:none;
+#answer-text {
+  background-color: rgba(255, 255, 255, 0.796);
+  border-radius: 5px;
+  padding: 10px;
 }
 
-#question-card{
-    background: rgba(255, 255, 255, 0.52);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-width: 60%;
-padding: 30px;
-margin-top: 20px;
+.hidden {
+  display: none;
 }
 
-#question-header{
-    display: flex;
-    align-items: center;
-    height:50px;
-    justify-content: space-between;
-    border: 3px double black;
-    border-style: double;
-    border-radius: 5px;
-    padding: 0px 8px;
-    margin-bottom: 10px;
+#question-card {
+  background: rgba(255, 255, 255, 0.52);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 60%;
+  padding: 30px;
+  margin-top: 20px;
 }
 
-.delete-btn{
-    height: 30px;;
+#question-header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  justify-content: space-between;
+  border: 3px double black;
+  border-style: double;
+  border-radius: 5px;
+  padding: 0px 8px;
+  margin-bottom: 10px;
 }
 
-.question-text{
-    padding: 10px 0px;
+.delete-btn {
+  height: 30px;
 }
 
-#crud-btn-container{
-    display: flex;
-    gap: 5px;
+.question-text {
+  padding: 10px 0px;
+}
+
+#crud-btn-container {
+  display: flex;
+  gap: 5px;
 }

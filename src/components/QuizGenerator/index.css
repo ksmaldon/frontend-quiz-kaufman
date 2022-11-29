@@ -1,45 +1,46 @@
-.quiz-generator{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
+.quiz-generator {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-.quiz-generator h3{
-    color:rgb(0, 0, 0);
-    font-size: 30px;
-    font-weight:bold;
-    background-color: #ffffff;
-    padding: 10px;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}   
+.quiz-generator h3 {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
 
 form {
-    background: rgba(255, 255, 255, 0.52);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-width: 60%;
-padding: 30px;
-display: flex;
-justify-content: center;
-gap:10%;
-accent-color: #db91fe5c;
+  background: rgba(255, 255, 255, 0.52);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 60%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  accent-color: #db91fe5c;
 }
 
-.checkbox-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:10%;
+.checkbox-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
 }
 
-.checkbox{
-    transform:scale(2.5);
-    margin:30px;
+.checkbox {
+  transform: scale(2.5);
+  margin: 30px;
 }
-

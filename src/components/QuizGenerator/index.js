@@ -1,6 +1,5 @@
-import Button from "../Button";
 import { useEffect, useState } from "react";
-import './index.css'
+import "./index.css";
 
 export default function QuizGenerator({ setTopics }) {
   const [reactChecked, setReactChecked] = useState(false);
@@ -23,7 +22,7 @@ export default function QuizGenerator({ setTopics }) {
 
   return (
     <div className="quiz-generator">
-    <h3>Test by Topic</h3>
+      <h3>Test by Topic</h3>
       <form>
         <div className="checkbox-input">
           <label>React</label>
@@ -57,11 +56,11 @@ export default function QuizGenerator({ setTopics }) {
             onChange={() => setSqlChecked(!sqlChecked)}
             type="checkbox"
           ></input>
-          </div>
+        </div>
 
         <div className="checkbox-input">
           <label>JS</label>
-        <input
+          <input
             className="checkbox"
             id="JS"
             name="topics"
@@ -69,8 +68,7 @@ export default function QuizGenerator({ setTopics }) {
             onChange={() => setJsChecked(!jsChecked)}
             type="checkbox"
           ></input>
-          </div>
-        {/* <button onClick={fiveQuestions}>Generate Quiz</button> */}
+        </div>
       </form>
     </div>
   );
