@@ -55,3 +55,8 @@ a {
   display: flex;
   gap: 5px;
 }
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+}

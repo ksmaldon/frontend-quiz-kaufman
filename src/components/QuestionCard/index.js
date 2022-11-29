@@ -9,10 +9,39 @@ export default function QuestionCard({
   text_link,
   video_link,
   interactive_link,
+  topicId
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [buttonText, setButtonText] = useState("Reveal Answer");
+
+
+  const [editFormData, setEditFormData] = useState({});
+  //const [isDisabled, setIsDisabled] = useState(true);
+
+  function handleChangeFormEdit(event) {
+    const Question = event.target.form.Questions.value;
+    const Answers = event.target.form.Answer.value;
+   // const Topics = event.target.form.topic.value;
+
+    // if (Question.length > 0) {
+    //   setIsDisabled(false);
+    // } else {
+    //   setIsDisabled(true);
+    // }
+
+    setEditFormData({ question: Question, answer: Answers, topic_id: topicId });
+  }
+
+  async function editQuestion(id) {
+    await fetch(`/api/questions/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editFormData),
+    });
+  }
+
+
 
   const handleClick = (event) => {
     setIsActive((current) => !current);
@@ -64,7 +93,31 @@ export default function QuestionCard({
           <button className="resource-button">Practice!</button>
         </a>
       </div>
-      <button onClick={handleClick}>{buttonText}</button>
+      <button id="reveal-btn" onClick={handleClick}>{buttonText}</button>
+
+      
+      <div class="form-popup" id="myForm">
+
+  <form onChange={handleChangeFormEdit} action="/action_page.php" class="form-container">
+    <h1>Login</h1>
+
+    <label><b>Question</b></label>
+    <input type="text" placeholder="Enter Email" name="Questions" required/>
+
+    <label><b>Answer</b></label>
+    <input  placeholder="Enter Password" name="Answer" required/>
+
+    <button type="submit" onClick={() => {
+              editQuestion({questionId});
+              
+            }} class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+    
+    
     </div>
   );
 }
+
+
