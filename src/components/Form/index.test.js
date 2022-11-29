@@ -7,8 +7,8 @@ it('should have 3 input fields', () => {
   expect(inputElements.length).toBe(3);
 });
 
-it('should contains label text "Answer"  ', () => {
+it('should contains label text "Question"  ', () => {
     render(<Form/>);
-    const labelText = screen.getByLabelText('Answer:');
+    const labelText = screen.getByText('Question:');
     expect(labelText).toBeInTheDocument()
   });

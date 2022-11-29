@@ -19,11 +19,11 @@ it('should if the values of questions props are shown as expected', async () => 
     
     const questionText = screen.getByText('language', {exact: false})
     expect(questionText).toBeInTheDocument()
-    expect(questionText).toHaveClass('question')
+    expect(questionText).toHaveClass('question-text')
 
     const answerText = screen.getByText('js')
     expect(answerText).toBeInTheDocument()
-    expect(answerText).toHaveClass('answer', {exact: true})
+    expect(answerText).toHaveClass('hidden', {exact: false})
  
     
 });
