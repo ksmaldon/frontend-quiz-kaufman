@@ -24,3 +24,4 @@ export default function QuestionDisplay({ questions, deleteQuestion }) {
     </div>
   );
 }
+//this is a comment
