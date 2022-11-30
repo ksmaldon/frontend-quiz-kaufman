@@ -33,21 +33,13 @@ export default function QuestionCard({
     setEditFormData({ question: Question, answer: Answers });
   }
 
-  // async function editQuestion(id) {
-  //   await fetch(`/api/questions/${id}`, {
-  //     method: "PATCH",
-  //     headers: { "Content-Type": "application/json; charset=UTF-8"},
-  //     body: JSON.stringify(editFormData),
-  //   });
-  // }
-
-   async function editQuestion(id) {
-  const response = await fetch(`/api/questions/${id}`, {
-
-    method: 'PATCH',
-    headers: { "Content-Type": "application/json; charset=UTF-8"},
+  async function editQuestion(id, event) {
+ await fetch(`/api/questions/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json; charset=UTF-8"},
       body: JSON.stringify(editFormData),
-  })
+    }
+    );
   }
 
   //reveal answer button
@@ -127,7 +119,7 @@ export default function QuestionCard({
           <button
             type="submit"
             onClick={() => {
-              editQuestion({ questionId });
+              editQuestion( questionId );
             }}
             className="btn"
           >
