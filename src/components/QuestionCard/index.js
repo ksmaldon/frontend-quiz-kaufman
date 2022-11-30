@@ -9,20 +9,20 @@ export default function QuestionCard({
   text_link,
   video_link,
   interactive_link,
-  topicId
+  topicId,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [buttonText, setButtonText] = useState("Reveal Answer");
 
-
   const [editFormData, setEditFormData] = useState({});
   //const [isDisabled, setIsDisabled] = useState(true);
-
+  console.log("this is editFormData state: " + JSON.stringify(editFormData));
   function handleChangeFormEdit(event) {
     const Question = event.target.form.Questions.value;
     const Answers = event.target.form.Answer.value;
-   // const Topics = event.target.form.topic.value;
+    console.log("this is question form e target value " + Question);
+    console.log("this is answer form e target value " + Answers);
 
     // if (Question.length > 0) {
     //   setIsDisabled(false);
@@ -30,19 +30,27 @@ export default function QuestionCard({
     //   setIsDisabled(true);
     // }
 
-    setEditFormData({ question: Question, answer: Answers, topic_id: topicId });
+    setEditFormData({ question: Question, answer: Answers });
   }
 
-  async function editQuestion(id) {
-    await fetch(`/api/questions/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+  // async function editQuestion(id) {
+  //   await fetch(`/api/questions/${id}`, {
+  //     method: "PATCH",
+  //     headers: { "Content-Type": "application/json; charset=UTF-8"},
+  //     body: JSON.stringify(editFormData),
+  //   });
+  // }
+
+   async function editQuestion(id) {
+  const response = await fetch(`/api/questions/${id}`, {
+
+    method: 'PATCH',
+    headers: { "Content-Type": "application/json; charset=UTF-8"},
       body: JSON.stringify(editFormData),
-    });
+  })
   }
 
-
-
+  //reveal answer button
   const handleClick = (event) => {
     setIsActive((current) => !current);
     if (buttonText === "Reveal Answer") {
@@ -93,31 +101,43 @@ export default function QuestionCard({
           <button className="resource-button">Practice!</button>
         </a>
       </div>
-      <button id="reveal-btn" onClick={handleClick}>{buttonText}</button>
+      <button id="reveal-btn" onClick={handleClick}>
+        {buttonText}
+      </button>
 
-      
-      <div class="form-popup" id="myForm">
+      <div className="form-popup" id="myForm">
+        <form onChange={handleChangeFormEdit} className="form-container">
+          <h1>Edit Question</h1>
 
-  <form onChange={handleChangeFormEdit} action="/action_page.php" class="form-container">
-    <h1>Login</h1>
+          <label>
+            <b>Question</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Question"
+            name="Questions"
+            required
+          />
 
-    <label><b>Question</b></label>
-    <input type="text" placeholder="Enter Email" name="Questions" required/>
+          <label>
+            <b>Answer</b>
+          </label>
+          <input placeholder="Enter Answer" name="Answer" required />
 
-    <label><b>Answer</b></label>
-    <input  placeholder="Enter Password" name="Answer" required/>
-
-    <button type="submit" onClick={() => {
-              editQuestion({questionId});
-              
-            }} class="btn">Submit</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
-    
-    
+          <button
+            type="submit"
+            onClick={() => {
+              editQuestion({ questionId });
+            }}
+            className="btn"
+          >
+            Submit
+          </button>
+          <button type="button" className="close-button">
+            Close
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
-
-
