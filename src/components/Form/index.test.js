@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import Form from '../Form'
 
-it('should have 3 input fields', () => {
+it('should have 2 input fields', () => {
   render(<Form/>);
   const inputElements = screen.getAllByRole('textbox');
-  expect(inputElements.length).toBe(3);
+  expect(inputElements.length).toBe(2);
 });
 
 it('should contains label text "Question"  ', () => {

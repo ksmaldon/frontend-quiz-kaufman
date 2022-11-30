@@ -25,7 +25,7 @@ export default function QuizGenerator({ setTopics }) {
       <h3>Test by Topic</h3>
       <form>
         <div className="checkbox-input">
-          <label>React</label>
+          <label htmlFor="react">React</label>
           <input
             className="checkbox"
             id="react"
@@ -36,7 +36,7 @@ export default function QuizGenerator({ setTopics }) {
           />
         </div>
         <div className="checkbox-input">
-          <label>HTML/CSS</label>
+          <label htmlFor="HTML_CSS">HTML/CSS</label>
           <input
             className="checkbox"
             id="HTML_CSS"
@@ -44,10 +44,10 @@ export default function QuizGenerator({ setTopics }) {
             name="topics"
             checked={htmlChecked}
             onChange={() => setHtmlChecked(!htmlChecked)}
-          ></input>
+          />
         </div>
         <div className="checkbox-input">
-          <label>SQL</label>
+          <label htmlFor="SQL">SQL</label>
           <input
             className="checkbox"
             id="SQL"
@@ -55,11 +55,11 @@ export default function QuizGenerator({ setTopics }) {
             checked={sqlChecked}
             onChange={() => setSqlChecked(!sqlChecked)}
             type="checkbox"
-          ></input>
+          />
         </div>
 
         <div className="checkbox-input">
-          <label>JS</label>
+          <label htmlFor="JS">JS</label>
           <input
             className="checkbox"
             id="JS"
@@ -67,7 +67,7 @@ export default function QuizGenerator({ setTopics }) {
             checked={jsChecked}
             onChange={() => setJsChecked(!jsChecked)}
             type="checkbox"
-          ></input>
+          />
         </div>
       </form>
     </div>
