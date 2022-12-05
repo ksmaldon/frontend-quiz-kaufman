@@ -14,9 +14,10 @@ export default function QuestionCard({
   const [isActive, setIsActive] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [buttonText, setButtonText] = useState("Reveal Answer");
-
+  const [editFormVisibility, setEditFormVisibility] = useState(false);
   const [editFormData, setEditFormData] = useState({});
-  //const [isDisabled, setIsDisabled] = useState(true);
+
+
   console.log("this is editFormData state: " + JSON.stringify(editFormData));
   function handleChangeFormEdit(event) {
     const Question = event.target.form.Questions.value;
@@ -24,12 +25,7 @@ export default function QuestionCard({
     console.log("this is question form e target value " + Question);
     console.log("this is answer form e target value " + Answers);
 
-    // if (Question.length > 0) {
-    //   setIsDisabled(false);
-    // } else {
-    //   setIsDisabled(true);
-    // }
-
+ 
     setEditFormData({ question: Question, answer: Answers });
   }
 
@@ -53,16 +49,21 @@ export default function QuestionCard({
     }
   };
 
+  //handle click function to hide the deleted question
   const handleClickDelete = (event) => {
     setIsDeleted((current) => !current);
   };
+
+  //handle click function to show / hide the edit form 
+  const editButtonHandleClick = (event) => {
+    setEditFormVisibility((current) => !current)}
 
   return (
     <div id="question-card" className={isDeleted ? "hidden" : "visible"}>
       <div id="question-header">
         <h4>Question {questionNumber}</h4>
         <div id="crud-btn-container">
-          <button>Edit</button>
+          <button onClick={editButtonHandleClick}>Edit</button>
           <button
             className="delete-btn"
             onClick={() => {
@@ -97,9 +98,9 @@ export default function QuestionCard({
         {buttonText}
       </button>
 
-      <div className="form-popup" id="myForm">
+      <div className={editFormVisibility ? "form-popup" : "hidden"} id="myForm">
         <form onChange={handleChangeFormEdit} className="form-container">
-          <h1>Edit Question</h1>
+          <h3>Edit Question</h3>
 
           <label>
             <b>Question</b>
@@ -125,7 +126,7 @@ export default function QuestionCard({
           >
             Submit
           </button>
-          <button type="button" className="close-button">
+          <button type="button" className="close-button" onClick={editButtonHandleClick}>
             Close
           </button>
         </form>
