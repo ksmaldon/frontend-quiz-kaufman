@@ -12,6 +12,7 @@ export default function QuestionDisplay({ questions, deleteQuestion }) {
             questionId={questionObject.question_id}
             question={questionObject.question}
             answer={questionObject.answer}
+            topicId={questionObject.topic_id}
             deleteQuestion={deleteQuestion}
             text_link={questionObject.text_link}
             video_link={questionObject.video_link}

@@ -9,11 +9,36 @@ export default function QuestionCard({
   text_link,
   video_link,
   interactive_link,
+  topicId,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [buttonText, setButtonText] = useState("Reveal Answer");
+  const [editFormVisibility, setEditFormVisibility] = useState(false);
+  const [editFormData, setEditFormData] = useState({});
 
+
+  console.log("this is editFormData state: " + JSON.stringify(editFormData));
+  function handleChangeFormEdit(event) {
+    const Question = event.target.form.Questions.value;
+    const Answers = event.target.form.Answer.value;
+    console.log("this is question form e target value " + Question);
+    console.log("this is answer form e target value " + Answers);
+
+ 
+    setEditFormData({ question: Question, answer: Answers });
+  }
+
+  async function editQuestion(id, event) {
+ await fetch(`/api/questions/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json; charset=UTF-8"},
+      body: JSON.stringify(editFormData),
+    }
+    );
+  }
+
+  //reveal answer button
   const handleClick = (event) => {
     setIsActive((current) => !current);
     if (buttonText === "Reveal Answer") {
@@ -24,16 +49,21 @@ export default function QuestionCard({
     }
   };
 
+  //handle click function to hide the deleted question
   const handleClickDelete = (event) => {
     setIsDeleted((current) => !current);
   };
+
+  //handle click function to show / hide the edit form 
+  const editButtonHandleClick = (event) => {
+    setEditFormVisibility((current) => !current)}
 
   return (
     <div id="question-card" className={isDeleted ? "hidden" : "visible"}>
       <div id="question-header">
         <h4>Question {questionNumber}</h4>
         <div id="crud-btn-container">
-          <button>Edit</button>
+          <button onClick={editButtonHandleClick}>Edit</button>
           <button
             className="delete-btn"
             onClick={() => {
@@ -64,7 +94,43 @@ export default function QuestionCard({
           <button className="resource-button">Practice!</button>
         </a>
       </div>
-      <button onClick={handleClick}>{buttonText}</button>
+      <button id="reveal-btn" onClick={handleClick}>
+        {buttonText}
+      </button>
+
+      <div className={editFormVisibility ? "form-popup" : "hidden"} id="myForm">
+        <form onChange={handleChangeFormEdit} className="form-container">
+          <h3>Edit Question</h3>
+
+          <label>
+            <b>Question</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Question"
+            name="Questions"
+            required
+          />
+
+          <label>
+            <b>Answer</b>
+          </label>
+          <input placeholder="Enter Answer" name="Answer" required />
+
+          <button
+            type="submit"
+            onClick={() => {
+              editQuestion( questionId );
+            }}
+            className="btn"
+          >
+            Submit
+          </button>
+          <button type="button" className="close-button" onClick={editButtonHandleClick}>
+            Close
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
